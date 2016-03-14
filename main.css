@@ -1,0 +1,16 @@
+video, input {
+    display: block;
+}
+
+input {
+    width: 20%;
+}
+
+.info {
+    background-color: lightgray;
+}
+
+.error {
+    background-color: red;
+    color: white;
+}
