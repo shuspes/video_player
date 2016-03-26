@@ -67,5 +67,7 @@ function readSubtitlesFile(input) {
 }
 
 function parseSubtitles(fileContent) {
-    console.log(fileContent);
+    var subtitlesParser = new SubtitlesParser();
+    var subtitlesforHtml = subtitlesParser.subtitlesObjectFromSrt(fileContent);
+    console.log(subtitlesforHtml);
 }
