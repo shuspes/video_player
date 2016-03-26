@@ -1,4 +1,4 @@
-video, input {
+/*video, input {
     display: block;
 }
 
@@ -13,4 +13,28 @@ input {
 .error {
     background-color: red;
     color: white;
+}*/
+
+/*style for main blicks position*/
+.css-container {
+    display: inline-block;
+}
+.css-video-container {
+    width: 50%;
+    height: 100vh;
+    background: red;
+}
+.css-rightBlock {
+    float: right;
+    width: 49%;
+    height: 100vh;
+    background: blue;
+}
+.css-video-controlBlock {
+    height: 30vh;
+    background: grey;
+}
+.css-subtitles-container {
+    height: 70vh;
+    background: lightgrey;
 }
