@@ -68,6 +68,20 @@ function readSubtitlesFile(input) {
 
 function parseSubtitles(fileContent) {
     var subtitlesParser = new SubtitlesParser();
-    var subtitlesforHtml = subtitlesParser.subtitlesObjectFromSrt(fileContent);
-    console.log(subtitlesforHtml);
+    var subtitlesArray = subtitlesParser.subtitlesObjectFromSrt(fileContent);
+    createSubtitlesBlock(subtitlesArray);
+    console.log(subtitlesArray);
+}
+
+function createSubtitlesBlock(subtitlesArray) {
+    var subtitlesBlock = subtitlesArray.map(function(subtitle, index) {
+        return createSubtitle(subtitle);
+    });
+    $(".js-subtitles-player").append(subtitlesBlock);
+}
+
+function createSubtitle(subtitle) {
+    return $("<span class=\"css-subtitle\" data-startTime=\"" + subtitle.StartTime + "\" data-endTime=\"" + subtitle.EndTime + "\">" +
+        subtitle.Text +
+        "</span>");
 }

@@ -38,3 +38,19 @@ input {
     height: 70vh;
     background: lightgrey;
 }
+.css-subtitles-player {
+    width: 90%;
+    height: 70%;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    overflow: auto;
+}
+.css-subtitle {
+    display: table;
+    cursor: pointer;
+}
+.css-subtitle:hover {
+    color: blue;
+}

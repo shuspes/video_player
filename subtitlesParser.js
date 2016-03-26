@@ -13,10 +13,10 @@ SubtitlesParser.prototype = {
         var items = [];
         for (var i = 0; i < data.length; i += 4) {
             items.push({
-                id: data[i].trim(),
-                startTime: useMs ? this.timeMs(data[i + 1].trim()) : data[i + 1].trim(),
-                endTime: useMs ? this.timeMs(data[i + 2].trim()) : data[i + 2].trim(),
-                text: data[i + 3].trim()
+                Id: data[i].trim(),
+                StartTime: useMs ? this.timeMs(data[i + 1].trim()) : data[i + 1].trim(),
+                EndTime: useMs ? this.timeMs(data[i + 2].trim()) : data[i + 2].trim(),
+                Text: data[i + 3].trim()
             });
         }
 
