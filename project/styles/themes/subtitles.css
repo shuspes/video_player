@@ -1,0 +1,19 @@
+.css-subtitles-content{
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #1b809e;
+    overflow: auto;
+}
+.css-subtitle {
+    color: #31708f;
+}
+
+.css-subtitle:hover {
+    cursor: pointer;
+    color: #337ab7;
+}
+
+.css-subtitle.active {
+    color: #3c763d;
+}

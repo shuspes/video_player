@@ -11,28 +11,30 @@
 
         <link rel="stylesheet" type="text/css" href="./project/styles/lib/bootstrap.min.css">
 
-        <link rel="stylesheet" type="text/css" href="./project/styles/main.css">
+        <link rel="stylesheet" type="text/css" href="./project/styles/layouts/site.css">
+        <link rel="stylesheet" type="text/css" href="./project/styles/layouts/subtitles.css">
+        <link rel="stylesheet" type="text/css" href="./project/styles/themes/subtitles.css">
+        
     </head>
 
     <body>
-        <div>
-            <div class="css-video-container css-container">
-                <div class="css-video-openButton css-openButton">
-
+        <div class="container">
+            <div class="css-controlPanel row">
+                <div class="css-video-controlPanel col-sm-6">
+                    <h4 class="css-controlPanel-name">Video controls</h4>
+                    <input type="file" onchange="console.log('video load');" />
                 </div>
-                <div class="css-video-player">
-
+                <div class="css-subtitles-controlPanel col-sm-6">
+                    <h4 class="css-controlPanel-name">Subtitles controls</h4>
+                    <input type="file" onchange="readSubtitlesFile(this);" />
                 </div>
             </div>
-            <div class="css-rightBlock css-container">
-                <div class="css-video-controlBlock">
+            <div class="css-content row">
+                <div class="css-video-content css-content col-sm-6">
 
                 </div>
-                <div class="css-subtitles-container">
-                    <div class="css-subtitles-openButton css-openButton">
-                        <input type="file" onchange="readSubtitlesFile(this);" />
-                    </div>
-                    <div class="css-subtitles-player js-subtitles-player"></div>
+                <div class="js-subtitles-content col-sm-6">
+
                 </div>
             </div>
         </div>

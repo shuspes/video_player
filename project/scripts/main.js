@@ -74,14 +74,17 @@ function parseSubtitles(fileContent) {
 }
 
 function createSubtitlesBlock(subtitlesArray) {
-    var subtitlesBlock = subtitlesArray.map(function(subtitle, index) {
-        return createSubtitle(subtitle);
-    });
-    $(".js-subtitles-player").append(subtitlesBlock);
+    var subtitles = createSubtitles(subtitlesArray),
+        subtitlesBlock = "<div class=\"css-subtitles-content css-content\">" + subtitles + "</div>";
+    $(".js-subtitles-content").html(subtitlesBlock);
 }
 
-function createSubtitle(subtitle) {
-    return $("<span class=\"css-subtitle\" data-startTime=\"" + subtitle.StartTime + "\" data-endTime=\"" + subtitle.EndTime + "\">" +
-        subtitle.Text +
-        "</span>");
+function createSubtitles(subtitlesArray) {
+    var result = "";
+    $.each(subtitlesArray, function(index, subtitle) {
+        result += "<p class=\"css-subtitle\" data-startTime=\"" + subtitle.StartTime + "\" data-endTime=\"" + subtitle.EndTime + "\">" +
+            subtitle.Text +
+            "</p>";
+    });
+    return result;
 }
