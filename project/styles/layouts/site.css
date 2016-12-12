@@ -1,3 +1,7 @@
 .css-controlPanel {
     padding-bottom: 15px;
 }
+
+.css-content {
+    max-height: 400px;
+}
