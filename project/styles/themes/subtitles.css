@@ -7,13 +7,14 @@
 }
 .css-subtitle {
     color: #31708f;
+    font-weight: 600;
 }
 
 .css-subtitle:hover {
     cursor: pointer;
-    color: #337ab7;
+    text-decoration: underline;
 }
 
 .css-subtitle.active {
-    color: #3c763d;
+    color: black;
 }
