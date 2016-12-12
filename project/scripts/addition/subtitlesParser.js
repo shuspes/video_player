@@ -2,9 +2,7 @@ function SubtitlesParser() {
 }
 
 SubtitlesParser.prototype = {
-    subtitlesObjectFromSrt: function(data, ms) {
-        var useMs = ms ? true : false;
-
+    subtitlesObjectFromSrt: function(data, useSeconds = false) {
         data = data.replace(/\r/g, '');
         var regex = /(\d+)\n(\d{2}:\d{2}:\d{2},\d{3}) --> (\d{2}:\d{2}:\d{2},\d{3})/g;
         data = data.split(regex);
@@ -14,15 +12,15 @@ SubtitlesParser.prototype = {
         for (var i = 0; i < data.length; i += 4) {
             items.push({
                 Id: data[i].trim(),
-                StartTime: useMs ? this.timeMs(data[i + 1].trim()) : data[i + 1].trim(),
-                EndTime: useMs ? this.timeMs(data[i + 2].trim()) : data[i + 2].trim(),
+                StartTime: useSeconds ? this.timeSeconds(data[i + 1].trim()) : data[i + 1].trim(),
+                EndTime: useSeconds ? this.timeSeconds(data[i + 2].trim()) : data[i + 2].trim(),
                 Text: data[i + 3].trim()
             });
         }
 
         return items;
     },
-    timeMs: function(val) {
+    timeSeconds: function(val) {
         var regex = /(\d+):(\d{2}):(\d{2}),(\d{3})/;
         var parts = regex.exec(val);
 
@@ -36,6 +34,6 @@ SubtitlesParser.prototype = {
         }
 
         // hours + minutes + seconds + ms
-        return parts[1] * 3600000 + parts[2] * 60000 + parts[3] * 1000 + parts[4];
+        return parts[1] * 3600 + parts[2] * 60 + parts[3] + parts[4] / 1000;
     },
 }
