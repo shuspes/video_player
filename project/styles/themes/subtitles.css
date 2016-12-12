@@ -17,4 +17,5 @@
 
 .css-subtitle.active {
     color: black;
+    text-decoration: none;
 }
