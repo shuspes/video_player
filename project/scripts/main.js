@@ -11,6 +11,28 @@ function readVideoFile(input) {
 
     var fileURL = URL.createObjectURL(file);
     videoPlayer.src = fileURL;
+
+    videoPlayer.addEventListener("timeupdate", function() {
+        videoTimeUpdated(videoPlayer);
+    });
+}
+
+function videoTimeUpdated(videoPlayer) {
+    var currentTime = videoPlayer.currentTime;
+    activateSubtitle(currentTime);
+}
+
+function activateSubtitle(time) {
+    if ($(".js-subtitles-content").children().length > 0 ) {
+        var subtitles = $(".js-subtitle");
+        subtitles.removeClass("active");
+        var currentSubtitle = subtitles.filter(function () {
+                return $(this).attr("data-startTime") < time && $(this).attr("data-endTime") > time;
+            });
+        currentSubtitle.addClass("active");
+    } else {
+        console.error("load subtitles file");
+    }
 }
 
 function readSubtitlesFile(input) {
@@ -38,7 +60,7 @@ function createSubtitlesBlock(subtitlesArray) {
 function createSubtitles(subtitlesArray) {
     var result = "";
     $.each(subtitlesArray, function(index, subtitle) {
-        result += "<p class=\"css-subtitle\" id=\"" + subtitle.Id + "\" onClick=\"subtitleClick('" + subtitle.StartTime + "')\" data-startTime=\"" + subtitle.StartTime + "\" data-endTime=\"" + subtitle.EndTime + "\">" +
+        result += "<p class=\"css-subtitle js-subtitle\" id=\"" + subtitle.Id + "\" onClick=\"subtitleClick('" + subtitle.StartTime + "')\" data-startTime=\"" + subtitle.StartTime + "\" data-endTime=\"" + subtitle.EndTime + "\">" +
             subtitle.Text +
             "</p>";
     });
