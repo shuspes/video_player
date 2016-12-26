@@ -38,6 +38,8 @@ function subtitleClick(startTime) {
 }
 
 function activateSubtitleByTime(time) {
+    clearAlertMessage(".js-subtitles-errorMessage");
+
     if ($(".js-subtitles-content").children().length > 0 ) {
         var subtitles = $(".js-subtitle");
         subtitles.removeClass("active");
@@ -46,6 +48,6 @@ function activateSubtitleByTime(time) {
             });
         currentSubtitle.addClass("active");
     } else {
-        console.error("load subtitles file");
+        displayWarningMessage(".js-subtitles-errorMessage", "Please, load subtitles file.");
     }
 }

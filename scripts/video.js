@@ -1,11 +1,13 @@
 function readVideoFile(input) {
+    clearAlertMessage(".js-video-errorMessage");
+
     var videoPlayer = $(".js-video-player")[0],
         file = input.files[0],
         type = file.type,
         canPlay = videoPlayer.canPlayType(type);
 
     if(canPlay == '') {
-        console.error("can not play this video!");
+        displayErrorMessage(".js-video-errorMessage", "Can not play this file.");
         return false;
     }
 
@@ -15,6 +17,6 @@ function readVideoFile(input) {
 
     videoPlayer.addEventListener("timeupdate", function() {
         var currentTime = videoPlayer.currentTime;
-        activateSubtitle(currentTime);
+        activateSubtitleByTime(currentTime);
     });
 }
