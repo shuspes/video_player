@@ -11,6 +11,7 @@ function readVideoFile(input) {
 
     var fileURL = URL.createObjectURL(file);
     videoPlayer.src = fileURL;
+    $(videoPlayer).addClass("active");
 
     videoPlayer.addEventListener("timeupdate", function() {
         var currentTime = videoPlayer.currentTime;
