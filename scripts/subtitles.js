@@ -1,40 +1,3 @@
-function readVideoFile(input) {
-    var videoPlayer = $(".js-video-player")[0],
-        file = input.files[0],
-        type = file.type,
-        canPlay = videoPlayer.canPlayType(type);
-
-    if(canPlay == '') {
-        console.error("can not play this video!");
-        return false;
-    }
-
-    var fileURL = URL.createObjectURL(file);
-    videoPlayer.src = fileURL;
-
-    videoPlayer.addEventListener("timeupdate", function() {
-        videoTimeUpdated(videoPlayer);
-    });
-}
-
-function videoTimeUpdated(videoPlayer) {
-    var currentTime = videoPlayer.currentTime;
-    activateSubtitle(currentTime);
-}
-
-function activateSubtitle(time) {
-    if ($(".js-subtitles-content").children().length > 0 ) {
-        var subtitles = $(".js-subtitle");
-        subtitles.removeClass("active");
-        var currentSubtitle = subtitles.filter(function () {
-                return $(this).attr("data-startTime") < time && $(this).attr("data-endTime") > time;
-            });
-        currentSubtitle.addClass("active");
-    } else {
-        console.error("load subtitles file");
-    }
-}
-
 function readSubtitlesFile(input) {
     var file = input.files[0];
     var reader = new FileReader();
@@ -47,7 +10,7 @@ function readSubtitlesFile(input) {
 
 function parseSubtitles(fileContent) {
     var subtitlesParser = new SubtitlesParser();
-    var subtitlesArray = subtitlesParser.subtitlesObjectFromSrt(fileContent, true);
+    var subtitlesArray = subtitlesParser.subtitlesObjectFromSrt(fileContent);
     createSubtitlesBlock(subtitlesArray);
 }
 
@@ -72,4 +35,17 @@ function subtitleClick(startTime) {
 
     videoPlayer.currentTime = startTime;
     videoPlayer.play();
+}
+
+function activateSubtitleByTime(time) {
+    if ($(".js-subtitles-content").children().length > 0 ) {
+        var subtitles = $(".js-subtitle");
+        subtitles.removeClass("active");
+        var currentSubtitle = subtitles.filter(function () {
+                return $(this).attr("data-startTime") < time && $(this).attr("data-endTime") > time;
+            });
+        currentSubtitle.addClass("active");
+    } else {
+        console.error("load subtitles file");
+    }
 }

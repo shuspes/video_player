@@ -2,7 +2,7 @@ function SubtitlesParser() {
 }
 
 SubtitlesParser.prototype = {
-    subtitlesObjectFromSrt: function(data, useSeconds = false) {
+    subtitlesObjectFromSrt: function(data) {
         data = data.replace(/\r/g, '');
         var regex = /(\d+)\n(\d{2}:\d{2}:\d{2},\d{3}) --> (\d{2}:\d{2}:\d{2},\d{3})/g;
         data = data.split(regex);
@@ -12,8 +12,8 @@ SubtitlesParser.prototype = {
         for (var i = 0; i < data.length; i += 4) {
             items.push({
                 Id: data[i].trim(),
-                StartTime: useSeconds ? this.timeSeconds(data[i + 1].trim()) : data[i + 1].trim(),
-                EndTime: useSeconds ? this.timeSeconds(data[i + 2].trim()) : data[i + 2].trim(),
+                StartTime: this.timeSeconds(data[i + 1].trim()),
+                EndTime: this.timeSeconds(data[i + 2].trim()),
                 Text: data[i + 3].trim()
             });
         }
