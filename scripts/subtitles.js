@@ -23,9 +23,10 @@ function createSubtitlesBlock(subtitlesArray) {
 function createSubtitles(subtitlesArray) {
     var result = "";
     $.each(subtitlesArray, function(index, subtitle) {
-        result += "<p class=\"css-subtitle js-subtitle\" id=\"" + subtitle.Id + "\" onClick=\"subtitleClick('" + subtitle.StartTime + "')\" data-startTime=\"" + subtitle.StartTime + "\" data-endTime=\"" + subtitle.EndTime + "\">" +
-            subtitle.Text +
-            "</p>";
+        result += "<div class=\"css-subtitle js-subtitle\" id=\"" + subtitle.Id + "\" onClick=\"subtitleClick('" + subtitle.StartTime + "')\" data-startTime=\"" + subtitle.StartTime + "\" data-endTime=\"" + subtitle.EndTime + "\">" +
+            "<span class='glyphicon glyphicon-option-vertical css-subtitle-menuIcon'></span>" +
+            "<span class='css-subtitle-text'>" + subtitle.Text + "</span>" +
+            "</div>";
     });
     return result;
 }
