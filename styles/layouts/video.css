@@ -3,6 +3,10 @@
     display: none;
 }
 
-.css-video-player.active {
+.css-video-content.active .css-video-player{
+    display: block;
+}
+
+.css-video-content.active .css-video-controlPanel{
     display: block;
 }
