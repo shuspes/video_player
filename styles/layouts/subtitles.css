@@ -18,21 +18,20 @@
 
 .css-subtitle-menuIcon {
     color: #069;
-    /*background-color: #069;*/
-    border: 1px solid #069;
+    border-right: 1px solid #069;
     height: 100%;
     position: absolute;
+    padding-right: 5px;
 }
 
 .css-subtitle-menuIcon:hover {
-    color: #fff;
-    background-color: #069;
+    color: black;
+    cursor: pointer;
 }
 
 .css-subtitle-menuIcon:before {
     position: relative;
     top: calc(50% - 8px);
-    left: 1px;
 }
 
 .css-subtitle-text {

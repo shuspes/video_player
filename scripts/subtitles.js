@@ -24,7 +24,9 @@ function createSubtitles(subtitlesArray) {
     var result = "";
     $.each(subtitlesArray, function(index, subtitle) {
         result += "<div class=\"css-subtitle js-subtitle\" id=\"" + subtitle.Id + "\" onClick=\"subtitleClick('" + subtitle.StartTime + "')\" data-startTime=\"" + subtitle.StartTime + "\" data-endTime=\"" + subtitle.EndTime + "\">" +
-            "<span class='glyphicon glyphicon-option-vertical css-subtitle-menuIcon'></span>" +
+            "<div class=\"css-subtitle-menu\">" +
+            "<i class=\"fa fa-bars css-subtitle-menuIcon\"></i>" +
+            "</div>" +
             "<span class='css-subtitle-text'>" + subtitle.Text + "</span>" +
             "</div>";
     });
