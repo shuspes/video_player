@@ -8,7 +8,7 @@ function readVideoFile(input) {
 
     if(canPlay == '') {
         displayErrorMessage(".js-video-errorMessage", "Can not play this file.");
-        return false;
+        return;
     }
 
     var fileURL = URL.createObjectURL(file);

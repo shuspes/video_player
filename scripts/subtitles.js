@@ -24,13 +24,22 @@ function createSubtitles(subtitlesArray) {
     var result = "";
     $.each(subtitlesArray, function(index, subtitle) {
         result += "<div class=\"css-subtitle js-subtitle\" id=\"" + subtitle.Id + "\" onClick=\"subtitleClick('" + subtitle.StartTime + "')\" data-startTime=\"" + subtitle.StartTime + "\" data-endTime=\"" + subtitle.EndTime + "\">" +
-            "<div class=\"css-subtitle-menu\">" +
-            "<i class=\"fa fa-bars css-subtitle-menuIcon\"></i>" +
-            "</div>" +
+            createSubtitleMenu() +
             "<span class='css-subtitle-text'>" + subtitle.Text + "</span>" +
             "</div>";
     });
     return result;
+}
+
+function createSubtitleMenu() {
+    return "<div class=\"css-subtitle-menu\">" +
+               "<i class=\"fa fa-bars css-subtitle-menuIcon\"></i>" +
+               "<div class=\"css-subtitle-menuContent\">" +
+                    "<i class=\"fa fa-retweet css-subtitle-menuContent-icon\"></i>" +
+                    "<i class=\"fa fa-google css-subtitle-menuContent-icon\"></i>" +
+               "</div>" +
+               "<div class=\"css-subtitle-menu-background\"></div>" +
+           "</div>";
 }
 
 function subtitleClick(startTime) {

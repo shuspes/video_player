@@ -1,14 +1,65 @@
-.css-subtitles-content{
+.css-subtitles-content {
     padding: 20px;
     margin: 20px 0;
 }
 
-.css-subtitle-menuIcon {
+.css-subtitle-menu {
     display: none;
 }
 
-.css-subtitle:hover .css-subtitle-menuIcon {
+.css-subtitle:hover .css-subtitle-menu {
     display: block;
+}
+
+.css-subtitle-menuContent {
+    display: none;
+}
+
+.css-subtitle-menu-background {
+    display: none;
+}
+
+.css-subtitle-menu:hover .css-subtitle-menuContent {
+    display: block;
+}
+
+.css-subtitle-menu:hover .css-subtitle-menu-background {
+    display: block;
+}
+
+.css-subtitle-menu-background {
+    background-color: black;
+    position: absolute;
+    width: 100vw;
+    margin-left: 18px;
+    height: 100%;
+    opacity: 0.7;
+    top: 0;
+    z-index: 1;
+}
+
+.css-subtitle-menuContent {
+    position: absolute;
+    background-color: white;
+    left: 18px;
+    width: 50px;
+    height: 100%;
+    top: 0px;
+    border: 1px solid #069;
+    border-left: none;
+    border-right: none;
+    z-index: 2;
+}
+
+.css-subtitle-menuContent .css-subtitle-menuContent-icon {
+    padding: 0 5px;
+    top: calc(50% - 10px);
+    position: relative;
+}
+
+.css-subtitle-menuContent .css-subtitle-menuContent-icon:hover {
+    color: black;
+    cursor: pointer;
 }
 
 .css-subtitle {
@@ -16,7 +67,7 @@
     position: relative;
 }
 
-.css-subtitle-menuIcon {
+.css-subtitle-menu {
     color: #069;
     border-right: 1px solid #069;
     height: 100%;
@@ -29,9 +80,9 @@
     cursor: pointer;
 }
 
-.css-subtitle-menuIcon:before {
-    position: relative;
-    top: calc(50% - 8px);
+.css-subtitle-menuIcon {
+    top: calc(50% - 9px);
+    position: relative;;
 }
 
 .css-subtitle-text {
