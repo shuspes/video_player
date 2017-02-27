@@ -8,10 +8,23 @@
         <link rel="stylesheet" type="text/css" href="./lib/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="./lib/font-awesome.min.css">
 
-        <script type='text/javascript' src='./scripts/addition/subtitlesParser.js'></script>
+        <!-- <script type='text/javascript' src='./scripts/addition/subtitlesParser.js'></script>
         <script type='text/javascript' src='./scripts/validation.js'></script>
         <script type='text/javascript' src='./scripts/subtitles.js'></script>
-        <script type='text/javascript' src='./scripts/video.js'></script>
+        <script type='text/javascript' src='./scripts/video.js'></script> -->
+
+        <script type="text/javascript" src="./scripts/addition/subtitlesParser.js"></script>
+        <script type="text/javascript" src="./scripts/common/errors.js"></script>
+        <script type="text/javascript" src="./scripts/subtitles/index.js"></script>
+        <script type="text/javascript" src="./scripts/subtitles/reader.js"></script>
+        <script type="text/javascript" src="./scripts/subtitles/template.js"></script>
+        <script type="text/javascript" src="./scripts/subtitles/subtitle/menu/index.js"></script>
+        <script type="text/javascript" src="./scripts/subtitles/subtitle/index.js"></script>
+        <script type="text/javascript" src="./scripts/subtitles/subtitle/template.js"></script>
+
+        <script type="text/javascript" src="./scripts/video/videoPlayer/index.js"></script>
+        <script type="text/javascript" src="./scripts/video/index.js"></script>
+        <script type="text/javascript" src="./scripts/video/reader.js"></script>        
 
         <link rel="stylesheet" type="text/css" href="./styles/layouts/site.css">
         <link rel="stylesheet" type="text/css" href="./styles/layouts/subtitles.css">
@@ -24,11 +37,11 @@
             <div class="css-controlPanel row">
                 <div class="css-video-controlPanel col-sm-6">
                     <h4 class="css-controlPanel-name">Video controls</h4>
-                    <input type="file" onchange="readVideoFile(this)" />
+                    <input type="file" onchange="openVideo(this)" />
                 </div>
                 <div class="css-subtitles-controlPanel col-sm-6">
                     <h4 class="css-controlPanel-name">Subtitles controls</h4>
-                    <input type="file" onchange="readSubtitlesFile(this);" />
+                    <input type="file" onchange="openSubtitles(this);" />
                 </div>
             </div>
             <div class="css-content row">
