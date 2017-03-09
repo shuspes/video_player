@@ -1,24 +1,20 @@
-import {clearErrorMessage, displayErrorMessage} from "/scripts/common/errors";
+// import {clearErrorMessage, displayErrorMessage} from "/scripts/common/errors";
+import {getInputFile} from "../common/getter/fileGetter";
 
-export function readVideoFile(input) {
-    clearErrorMessage(".js-video-errorMessage");
+export function readVideoFile(input, videoPlayer) {
 
-    var videoPlayer = $(".js-video-player")[0],
-        file = input.files[0],
-        type = file.type,
-        canPlay = videoPlayer.canPlayType(type);
+    const file = getInputFile(input);
+    const fileType = file.type;
 
-    if(canPlay == '') {
-        displayErrorMessage(".js-video-errorMessage", "Can not play this file.");
+    if(validateVideoFile(videoPlayer, fileType)) {
+        // displayErrorMessage(".js-video-errorMessage", "Can not play this file.");
         return;
+    } else {
+        // clearErrorMessage(".js-video-errorMessage");
+        return file;
     }
+}
 
-    var fileURL = URL.createObjectURL(file);
-    videoPlayer.src = fileURL;
-    $(".js-video-content").addClass("active");
-
-    videoPlayer.addEventListener("timeupdate", function() {
-        var currentTime = videoPlayer.currentTime;
-        activateSubtitleByTime(currentTime);
-    });
+function validateVideoFile(videoPlayer, fileType) {
+    return videoPlayer.canPlayType(fileType) == "";
 }

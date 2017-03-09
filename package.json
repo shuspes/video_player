@@ -1,0 +1,24 @@
+{
+  "name": "video_player",
+  "version": "1.0.0",
+  "description": "video player",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuspes/video_player.git"
+  },
+  "author": "alex spesivtsev",
+  "license": "OTHER",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/shuspes/video_player/issues"
+  },
+  "homepage": "https://github.com/shuspes/video_player#readme",
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  }
+}
